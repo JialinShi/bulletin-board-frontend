@@ -5,54 +5,55 @@
     padding: 15px;
     box-shadow: 0 0 5px rgba(0, 0, 0, 0.1);
     transition: box-shadow 0.3s;
-}
-
-.note:hover {
+  }
+  
+  .note:hover {
     box-shadow: 0 0 15px rgba(0, 0, 0, 0.2);
-}
-
-.note-title {
+  }
+  
+  .note-title {
     font-size: 1.5em;
     margin-bottom: 10px;
     color: #333;
-}
-
-.note-content {
+  }
+  
+  .note-content {
     font-size: 1em;
     margin-bottom: 10px;
     color: #555;
-}
-
-.note-author {
+  }
+  
+  .note-author {
     font-size: 0.9em;
     color: #777;
     margin-bottom: 10px;
-}
-
-.button {
+  }
+  
+  .button {
     padding: 8px 16px;
     font-size: 0.9em;
     border: none;
     border-radius: 5px;
     cursor: pointer;
     transition: background-color 0.3s;
-}
-
-.edit-button {
+  }
+  
+  .edit-button {
     background-color: #ffc107;
     color: white;
     margin-right: 10px;
-}
-
-.edit-button:hover {
+  }
+  
+  .edit-button:hover {
     background-color: #e0a800;
-}
-
-.delete-button {
+  }
+  
+  .delete-button {
     background-color: #dc3545;
     color: white;
-}
-
-.delete-button:hover {
+  }
+  
+  .delete-button:hover {
     background-color: #c82333;
-}
+  }
+  
