@@ -1,37 +1,44 @@
 import React, { useEffect, useState } from 'react';
 import { getAllNotesForUser, createNote, deleteNote, updateNote } from '../services/NoteService';
+import { getAllUsers } from '../services/UserService';
 import Note from '../components/Note';
 import './NotePage.css';
 
 const NotePage = () => {
   const [notes, setNotes] = useState([]);
+  const [users, setUsers] = useState([]);
   const [title, setTitle] = useState('');
   const [content, setContent] = useState('');
   const [isEditing, setIsEditing] = useState(false);
   const [currentNoteId, setCurrentNoteId] = useState(null);
   const [userId, setUserId] = useState('');
-  const [errorMessage, setErrorMessage] = useState(''); // State for error messages
 
   useEffect(() => {
-    const user = JSON.parse(localStorage.getItem('user'));
-    if (user && user.id) {
-      setUserId(user.id);
-      fetchNotes(user.id);
-    } else {
-      // Redirect to login page if user is not logged in
-      window.location.href = '/login';
-    }
+    const fetchUsers = async () => {
+      try {
+        const response = await getAllUsers();
+        setUsers(response.data);
+      } catch (error) {
+        console.error('Error fetching users:', error);
+      }
+    };
+
+    fetchUsers();
   }, []);
 
-  const fetchNotes = async (userId) => {
-    try {
-      const response = await getAllNotesForUser(userId);
-      setNotes(response.data);
-    } catch (error) {
-      console.error('Error fetching notes:', error);
-      setErrorMessage('Error fetching notes.');
+  useEffect(() => {
+    if (userId) {
+      const fetchNotes = async () => {
+        try {
+          const response = await getAllNotesForUser(userId);
+          setNotes(response.data);
+        } catch (error) {
+          console.error('Error fetching notes:', error);
+        }
+      };
+      fetchNotes();
     }
-  };
+  }, [userId]);
 
   const handleCreateNote = async () => {
     if (isEditing) {
@@ -41,13 +48,12 @@ const NotePage = () => {
 
     try {
       const newNote = { title, content };
-      const response = await createNote(newNote);
+      const response = await createNote(newNote, userId);
       setNotes([...notes, response.data]);
       setTitle('');
       setContent('');
     } catch (error) {
       console.error('Error creating note:', error);
-      setErrorMessage('Error creating note.');
     }
   };
 
@@ -57,7 +63,6 @@ const NotePage = () => {
       setNotes(notes.filter(note => note.id !== noteId));
     } catch (error) {
       console.error('Error deleting note:', error);
-      setErrorMessage('Error deleting note.');
     }
   };
 
@@ -66,6 +71,7 @@ const NotePage = () => {
     setCurrentNoteId(note.id);
     setTitle(note.title);
     setContent(note.content);
+    setUserId(userId);
   };
 
   const handleUpdateNote = async () => {
@@ -79,21 +85,32 @@ const NotePage = () => {
       setCurrentNoteId(null);
     } catch (error) {
       console.error('Error updating note:', error);
-      setErrorMessage('Error updating note.');
     }
   };
 
-  const handleLogout = () => {
-    localStorage.removeItem('token');
-    localStorage.removeItem('user');
-    window.location.href = '/login';
+  const handleClear = () => {
+    setTitle('');
+    setContent('');
+    setIsEditing(false);
+    setCurrentNoteId(null);
   };
 
   return (
     <div className="note-page-container">
+      <select
+          className="select-field"
+          value={userId}
+          onChange={(e) => setUserId(e.target.value)}
+          disabled={isEditing}
+        >
+          <option value="" disabled>Select Author</option>
+          {users.map(user => (
+            <option key={user.id} value={user.id}>
+              {user.username}
+            </option>
+          ))}
+        </select>
       <h1 className="title">Bulletin Board Notes</h1>
-      <button className="logout-button" onClick={handleLogout}>Logout</button>
-      {errorMessage && <div className="error-message">{errorMessage}</div>}
       <div className="form-container">
         <input
           className="input-field"
@@ -108,6 +125,7 @@ const NotePage = () => {
           onChange={(e) => setContent(e.target.value)}
           placeholder="Note Content"
         />
+        
         <button className="button" onClick={handleCreateNote}>{isEditing ? 'Update Note' : 'Create Note'}</button>
       </div>
       <div className="note-list">
