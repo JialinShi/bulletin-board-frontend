@@ -1,6 +1,6 @@
-### Website deployed on AWS - http://ec2-18-222-52-169.us-east-2.compute.amazonaws.com/ 
+### Application deployed on AWS - http://ec2-18-222-52-169.us-east-2.compute.amazonaws.com/ 
 
-# Project: bulletin-board-frontend 
+# [Project: bulletin-board-frontend](http://ec2-18-222-52-169.us-east-2.compute.amazonaws.com/ )
 Author: `Jialin Shi`
 
 Frontend repo for bulletin-board application, for information about the backend part of bulletin-board, pleaser refer to project [bulletin-board](https://github.com/JialinShi/bulletin-board)
