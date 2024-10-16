@@ -1,75 +1,55 @@
-<<<<<<< HEAD
-# bulletin-board-frontend
-Frontend repo for bulletin-board application
-=======
-# Getting Started with Create React App
+### Website deployed on AWS - http://ec2-18-222-52-169.us-east-2.compute.amazonaws.com/ 
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+# Project: bulletin-board-frontend 
+Author: `Jialin Shi`
 
-## Available Scripts
+Frontend repo for bulletin-board application, for information about the backend part of bulletin-board, pleaser refer to project [bulletin-board](https://github.com/JialinShi/bulletin-board)
 
-In the project directory, you can run:
+## Description
+This projects is created with REACT framework, combining with Javascript and CSS for the UI and scripts running the application. 
+There are 3 pages completed, users can switch between the pages using the navigator bar on the top
+- [Singup](http://ec2-18-222-52-169.us-east-2.compute.amazonaws.com/signup) Here users can sign up for a new account
+- [Login](http://ec2-18-222-52-169.us-east-2.compute.amazonaws.com/login) Here users can login using the account created
+- [My Notes](http://ec2-18-222-52-169.us-east-2.compute.amazonaws.com/notes) Here users are able to create, review, update, and delete notes they own. There is a `logout` button in this page, after users logging out, pages is forced to be switched to Login page.
 
-### `npm start`
+## Application Structure
+<img src="https://github.com/user-attachments/assets/f58f9658-7d92-4aac-9794-682e2cee811f" width="900" height="600" alt="bulletin-board" />
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+# Getting Started
 
-### `npm test`
+## Steps
+clone this project to the local
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+`gh repo clone JialinShi/bulletin-board-frontend`
 
-### `npm run build`
+install necessary dependencies
+  
+`brew install node` (Mac)
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+go to project home
+  
+`cd bulletin-board-frontend`
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+start application
+  
+`npm start`
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+open browser to access website 
 
-### `npm run eject`
+## Note
+This is a frontend application only, with authentication information required for most of the functions, in order to explore all functions, please also deploy backend service along with MySQL database locally. Backend service [bulletin-board](https://github.com/JialinShi/bulletin-board)
 
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
+# Upcoming features
 
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+**User Admin Page**
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
+Perform like administrator to CREATE, PULL, UPDATE, DELETE other users. Page WIP, please feel free to take a preview at [UserAdminPage](http://ec2-18-222-52-169.us-east-2.compute.amazonaws.com/useradmin)
 
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
+**Note Admin Page**
 
-## Learn More
+Enable you administrator access to review & take control of all users' notes. Page WIP, please feel free to take a preview at [NoteAdminPage](http://ec2-18-222-52-169.us-east-2.compute.amazonaws.com/noteadmin)
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
 
-To learn React, check out the [React documentation](https://reactjs.org/).
 
-### Code Splitting
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
-
-### Analyzing the Bundle Size
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
-
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
->>>>>>> a8e7a43 (Initialize project using Create React App)
