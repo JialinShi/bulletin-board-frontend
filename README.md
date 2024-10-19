@@ -4,7 +4,7 @@ Author: `Jialin Shi`
 
 Live website: http://ec2-18-222-52-169.us-east-2.compute.amazonaws.com/ 
 
-Frontend repo for bulletin-board application, for information about the backend part of bulletin-board, pleaser refer to project [bulletin-board](https://github.com/JialinShi/bulletin-board)
+**Backend repository** [bulletin-board](https://github.com/JialinShi/bulletin-board)
 
 ## Description
 This projects is created with REACT framework, combining with Javascript and CSS for the UI and scripts running the application. 
