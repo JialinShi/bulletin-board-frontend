@@ -2,7 +2,6 @@
 # Project: bulletin-board-frontend
 Author: `Jialin Shi`
 
-Live website: http://ec2-18-222-52-169.us-east-2.compute.amazonaws.com/ 
 
 **Backend repository** [bulletin-board](https://github.com/JialinShi/bulletin-board)
 
